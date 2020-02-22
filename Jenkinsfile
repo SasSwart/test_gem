@@ -4,12 +4,12 @@ pipeline {
     stage('Pull Repository') {
       steps {
         cleanWs()
-        checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: params.repo_https, credentialsId: 'sas-github']], branches: [[name: params.tag]]],poll: false
+        checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: params.repo_https, credentialsId: 'cd-deploy-key']], branches: [[name: params.tag]]],poll: false
       }
     }
   }
   parameters {
-    string(name: 'repo_https', description: 'The HTTPS url of the repository for which you would like to build a gem', defaultValue: 'https://github.com/SasSwart/test_gem')
-    string(name: 'tag', description: 'The tag from which you would like to build the gem', defaultValue: '0.0.1')
+    string(name: 'repo_https', description: 'The HTTPS url of the repository for which you would like to build a gem', defaultValue: 'https://github.com/SasSwart/cd')
+    string(name: 'tag', description: 'The tag from which you would like to build the gem', defaultValue: '0.0.3')
   }
 }
