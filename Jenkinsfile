@@ -10,6 +10,6 @@ pipeline {
   }
   parameters {
     string(name: 'repo_https', description: 'The HTTPS url of the repository for which you would like to build a gem', defaultValue: 'https://github.com/SasSwart/test_gem')
-    string(name: 'tag', description: 'The tag from which you would like to build the gem', defaultValue: 'https://github.com/SasSwart/test_gem')
+    string(name: 'tag', description: 'The tag from which you would like to build the gem', defaultValue: '0.0.1')
   }
 }
