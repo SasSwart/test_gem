@@ -4,7 +4,7 @@ pipeline {
     stage('Pull Repository') {
       steps {
         cleanWs()
-        checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: params.repo_https, credentialsId: 'cd-deploy-key']], branches: [[name: params.tag]]],poll: false
+        checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'PerBuildTag']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'cd-deploy-key', url: 'https://github.com/SasSwart/cd']]])
       }
     }
   }
