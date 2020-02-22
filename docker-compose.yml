@@ -9,3 +9,11 @@ services:
     - /home/sas/jenkins:/var/jenkins_home
     environment:
     - JAVA_OPTS="-XX:MaxPermSize=512m -Xms512m -Xmx1024m"
+    links:
+    - agent
+  agent:
+    build: ./agent
+    expose:
+    - 22
+    ports:
+    - "22"

@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent Ruby
   stages {
     stage('Pull Repository') {
       steps {
