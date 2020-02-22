@@ -8,7 +8,9 @@ pipeline {
       }
     }
     stage('Build Gem') {
-      sh 'gem build *.gemspec'
+      steps {
+        sh 'gem build *.gemspec'
+      }
     }
   }
   parameters {
