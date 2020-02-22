@@ -12,9 +12,15 @@ pipeline {
         sh 'gem build *.gemspec'
       }
     }
+    stage('Upload Gem') {
+      steps {
+        sh 'scp *.gem geminabox:/var/geminabox-data/gems'
+        sh 'ssh root@geminabox generate_index -d /var/geminabox-data/'
+        cleanWs()
+      }
+    }
   }
   parameters {
     string(name: 'repo_https', description: 'The HTTPS url of the repository for which you would like to build a gem', defaultValue: 'https://github.com/SasSwart/cd')
-    string(name: 'tag', description: 'The tag from which you would like to build the gem', defaultValue: '0.0.3')
   }
 }
