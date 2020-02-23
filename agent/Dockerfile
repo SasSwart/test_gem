@@ -23,5 +23,11 @@ RUN export JAVA_HOME
 
 RUN mkdir -p /var/run/sshd
 COPY ./sshd_config /etc/ssh/sshd_config
+COPY ./ssh_config /etc/ssh/ssh_config
 COPY ./id_rsa.pub /root/.ssh/authorized_keys
+COPY ./id_rsa /root/.ssh/id_rsa
+COPY ./ssh_host_rsa_key /etc/ssh/ssh_host_rsa_key
+COPY ./ssh_host_rsa_key /etc/ssh/ssh_host_rsa_key.pub
+COPY ./ssh_host_rsa_key.pub /root/.ssh/known_hosts
+
 CMD /usr/sbin/sshd -D

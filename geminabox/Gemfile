@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+gem 'geminabox'
+gem "builder", "~> 3.2"
+
+gem "unicorn", "~> 5.5"
