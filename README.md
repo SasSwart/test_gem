@@ -23,7 +23,6 @@ Once the containers are running, some configuration needs to happen in Jenkins:
 * Install the suggested plugins
 * Add this repository to Jenkins as a Multi-stage pipeline
 * Add an agent to Jenkins called Ruby with the hostname `agent`
-* Frankly, anything else that Jenkins asks you to do to get it running. This is not production ready and I've only tested it on my own host. *It is a proof of concept*
 
 ## TODO
 
