@@ -4,7 +4,7 @@ pipeline {
     stage('Pull Repository') {
       steps {
         cleanWs()
-        checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'cd-deploy-key', url: 'https://github.com/SasSwart/cd']]])
+        checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'cd-deploy-key', url: params.repo_https]]])
       }
     }
     stage('Build Gem') {
@@ -16,7 +16,6 @@ pipeline {
       steps {
         sh 'scp *.gem geminabox:/var/geminabox-data/gems'
         sh 'ssh root@geminabox gem generate_index -d /var/geminabox-data/'
-        cleanWs()
       }
     }
   }
