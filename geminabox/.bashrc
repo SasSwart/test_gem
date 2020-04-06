@@ -1,1 +1,0 @@
-export GEM_PATH=$GEM_PATH:/usr/local/bundle:/usr/local/bundle/gems/bin:/usr/local/bundle/bin
